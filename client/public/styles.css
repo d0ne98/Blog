@@ -43,3 +43,12 @@ header button {
 .statDiv p {
     font-size: 1.5rem;
 }
+
+.tilesContainer{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+.postTile{
+    width: 25%;
+}

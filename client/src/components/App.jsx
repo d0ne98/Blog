@@ -1,5 +1,6 @@
 import Header from "./Header";
 import Hero from "./Hero";
+import TilesContainer from "./TilesContainer";
 
 
 function App() {
@@ -7,6 +8,7 @@ function App() {
      <div>
      <Header />
      <Hero />
+     <TilesContainer />
         
     </div>
     )
