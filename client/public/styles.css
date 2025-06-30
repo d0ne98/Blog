@@ -1,0 +1,16 @@
+html{
+    margin: 1%;
+    background-color: #f2f2fb;
+}
+
+header{
+    height: 10vh;
+    display: flex;
+    gap: 1%;
+    justify-content: right;
+}
+header button {
+    height: fit-content;
+    background-color: black;
+    color: white;
+}
