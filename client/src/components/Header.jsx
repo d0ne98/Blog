@@ -2,10 +2,12 @@ import Button from "./Button";
 
 function Header() {
     return(
-    <header>
-        <Button name="Home"/>
-        <Button name="Articles"/>
-        <Button name="About"/>
+    <header className="header">
+        <div className="nav">
+         <Button name="Home"/>
+         <Button name="Articles"/>
+         <Button name="About"/>
+        </div>
     </header> 
     )
 }
