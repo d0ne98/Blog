@@ -2,7 +2,7 @@ import HeroStat from "./HeroStat"
 
 export default function Hero() {
     return(
-     <div className="hero">
+     <section className="hero">
         <div>
           <h1>D0ne's Blog</h1>
         </div>
@@ -10,7 +10,7 @@ export default function Hero() {
           <HeroStat number={10} title="Articles" />
           <HeroStat number={5} title="Topics" />
         </div>
-     </div>
+     </section>
     )
     
 }

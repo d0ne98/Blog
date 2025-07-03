@@ -5,12 +5,12 @@ import TilesContainer from "./TilesContainer";
 
 function App() {
     return (
-     <div>
+     <main>
      <Header />
      <Hero />
      <TilesContainer />
         
-    </div>
+    </main>
     )
 }
 
