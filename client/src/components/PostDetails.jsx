@@ -15,11 +15,17 @@ export default function PostDetails(){
 
     return(
     <div className="postDetails">
-        <h4>{post.topic}</h4>
-        <Button name="<-- Back to posts" handleClick={goBack}/>
-        <h3>{post.title}</h3>
-        <h5>{post.date}<span> . </span>{post.readTime}</h5>
-        <p>{post.fullText}</p>
+        <div className="backButtonContainer">
+            <Button name="← Back to Posts" handleClick={goBack}/>
+        </div>
+        <div className="postHero">
+            <h4>{post.topic}</h4>
+            <h1>{post.title}</h1>
+            <h5>{post.date}<span> . </span>{post.readTime}</h5>
+        </div>
+        <div className="postBody">
+            <p>{post.fullText}</p>
+        </div>
     </div>
     )
 }
