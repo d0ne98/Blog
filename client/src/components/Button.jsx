@@ -1,4 +1,4 @@
 
 export default function Button(props) {
-    return <button>{props.name}</button>
+    return <button onClick={props.handleClick}>{props.name}</button>
 }

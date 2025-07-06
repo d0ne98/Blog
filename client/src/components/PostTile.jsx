@@ -1,13 +1,20 @@
-import Button from "./Button"
+import {useNavigate} from "react-router-dom";
+
 export default function PostTile(props) {
+
+    const navigate = useNavigate();
+
+    function handleClick(){
+        navigate(`/post/${props.id}`)
+    }
     
     return(
-        <div className="postTile">
-            <Button name={props.topic} />
+        <div className="postTile" onClick={handleClick}>
+            <h2>{props.topic}</h2>
             <h3>{props.title}</h3>
-            <p>{props.text}</p>
-            <p>{props.date}</p>
-            <Button name={props.readTime}/>
+            <p>{props.summary}</p>
+            <p></p>
+            <h5>{props.date}<span> . </span>{props.readTime}</h5>
 
         </div>
     )
