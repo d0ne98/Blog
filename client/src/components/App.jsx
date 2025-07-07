@@ -3,6 +3,7 @@ import Header from "./Header";
 import Hero from "./Hero";
 import TilesContainer from "./TilesContainer";
 import PostDetails from "./PostDetails";
+import ArticlesPage from "./ArticlesPage";
 
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
               </>
            } />
            <Route path="/post/:id" element={<PostDetails />} />
+           <Route path="/articles" element={<ArticlesPage />} />
           </Routes>
        </main>
     </Router>
