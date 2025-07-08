@@ -4,6 +4,7 @@ import Hero from "./Hero";
 import TilesContainer from "./TilesContainer";
 import PostDetails from "./PostDetails";
 import ArticlesPage from "./ArticlesPage";
+import CreateArticlePage from "./CreateArticlePage";
 
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
            } />
            <Route path="/post/:id" element={<PostDetails />} />
            <Route path="/articles" element={<ArticlesPage />} />
+           <Route path="/articles/create" element={<CreateArticlePage />} />
           </Routes>
        </main>
     </Router>
