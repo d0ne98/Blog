@@ -1,17 +1,29 @@
 import {useParams, useNavigate} from "react-router-dom";
+import {useEffect, useState} from "react";
+import axios from "axios";
 import Button from "./Button";
-import posts from "./posts";
+
 
 
 export default function PostDetails(){
 
-
+    const [post, setPost] = useState([]);
     const navigate = useNavigate();
+    const {id} = useParams();
+
     function goBack() {
         navigate(-1);
     }
-    const {id} = useParams();
-    const post = posts.find(post => post.id === parseInt(id));
+
+    
+
+    useEffect(()=>{
+        async function getArticles() {
+             const response = await axios.get(`http://localhost:3001/api/article/${id}`);
+             setPost(response.data);
+        } getArticles();
+    },[])
+    
 
     return(
     <div className="postDetails">

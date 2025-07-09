@@ -1,3 +1,4 @@
+import axios from "axios";
 import Input from "./Input";
 import { useState } from "react";
 import Button from "./Button";
@@ -12,8 +13,9 @@ export default function CreateArticlePage() {
         readTime: ""
     });
 
-    function handleSubmit(event) {
+   async function handleSubmit(event) {
         event.preventDefault();
+        await axios.post("http://localhost:3001/api/articles/create", article);
     }
 
     function  setArticleValues(event) {
