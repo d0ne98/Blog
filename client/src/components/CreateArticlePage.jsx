@@ -1,9 +1,11 @@
 import axios from "axios";
 import Input from "./Input";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import Button from "./Button";
 
 export default function CreateArticlePage() {
+    const navigate = useNavigate();
     const [article , setArtcle] = useState({
         topic: "",
         title: "",
@@ -15,7 +17,9 @@ export default function CreateArticlePage() {
 
    async function handleSubmit(event) {
         event.preventDefault();
-        await axios.post("http://localhost:3001/api/articles/create", article);
+        const response = await axios.post("http://localhost:3001/api/articles/create", article);
+        const postId = response.data.id;
+        navigate(`/post/${postId}`)
     }
 
     function  setArticleValues(event) {

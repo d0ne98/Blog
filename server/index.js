@@ -16,6 +16,7 @@ app.post("/api/articles/create", (req, res)=>{
     const {topic, title, summary, date, readTime, fullText} = req.body;
     const article = {id: idCount++, topic, title, summary, date, readTime, fullText };
     articles.push(article);
+    res.json(article);
 });
 
 

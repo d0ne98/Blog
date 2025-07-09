@@ -1,4 +1,4 @@
-import {useParams, useNavigate} from "react-router-dom";
+import {useParams} from "react-router-dom";
 import {useEffect, useState} from "react";
 import axios from "axios";
 import Button from "./Button";
@@ -7,15 +7,8 @@ import Button from "./Button";
 
 export default function PostDetails(){
 
-    const [post, setPost] = useState([]);
-    const navigate = useNavigate();
+    const [post, setPost] = useState({});
     const {id} = useParams();
-
-    function goBack() {
-        navigate(-1);
-    }
-
-    
 
     useEffect(()=>{
         async function getArticles() {
@@ -28,7 +21,7 @@ export default function PostDetails(){
     return(
     <div className="postDetails">
         <div className="backButtonContainer">
-            <Button name="← Back to Posts" handleClick={goBack}/>
+            <Button name="← Back to Posts" url="/articles"/>
         </div>
         <div className="postHero">
             <h4>{post.topic}</h4>
