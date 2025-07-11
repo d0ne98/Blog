@@ -26,10 +26,10 @@ export default function PostDetails(){
         <div className="postHero">
             <h4>{post.topic}</h4>
             <h1>{post.title}</h1>
-            <h5>{post.date}<span> . </span>{post.readTime}</h5>
+            <h5>{post.date}<span> . </span>{post.readtime} minutes</h5>
         </div>
         <div className="postBody">
-            <p>{post.fullText}</p>
+            <p>{post.fulltext}</p>
         </div>
     </div>
     )
