@@ -17,12 +17,11 @@ const db = new pg.Client({
 
 db.connect();
 
+//middlewares 
 app.use(cors());
 app.use(express.urlencoded({extended: true}));
 app.use(express.json());
 
-const articles = [];
-let idCount = 1;
 
 // express routes 
 app.post("/api/articles/create", async (req, res)=>{
@@ -47,6 +46,11 @@ app.get("/api/article/:id", async (req, res)=>{
     res.json(post);
 })
 
+app.delete("/api/article/delete/:id", async (req, res)=>{
+    const id = parseInt(req.params.id);
+    await db.query("DELETE FROM articles WHERE id=$1",[id]);
+    res.status(200).json("Deleted.");
+})
 
 
 

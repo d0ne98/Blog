@@ -1,4 +1,4 @@
-import {useParams} from "react-router-dom";
+import {useParams, useNavigate} from "react-router-dom";
 import {useEffect, useState} from "react";
 import axios from "axios";
 import Button from "./Button";
@@ -9,6 +9,7 @@ export default function PostDetails(){
 
     const [post, setPost] = useState({});
     const {id} = useParams();
+    const navigate = useNavigate();
 
     useEffect(()=>{
         async function getArticles() {
@@ -16,6 +17,12 @@ export default function PostDetails(){
              setPost(response.data);
         } getArticles();
     },[])
+
+    async function OnDelete() {
+            const response = await axios.delete(`http://localhost:3001/api/article/delete/${id}`);
+            navigate("/articles")
+     }
+    
     
 
     return(
@@ -30,6 +37,10 @@ export default function PostDetails(){
         </div>
         <div className="postBody">
             <p>{post.fulltext}</p>
+        </div>
+        <div className="postActions">
+            <Button name="Edit" />
+            <Button name="Delete" clickAction={OnDelete} />
         </div>
     </div>
     )

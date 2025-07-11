@@ -569,3 +569,37 @@ button:hover::after {
     font-size: 1.4rem;
   }
 }
+
+.postActions {
+  display: flex;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.postActions button:first-child {
+  background: linear-gradient(90deg, #22d3ee 0%, #6366f1 100%);
+  color: #fff;
+  margin-right: 1rem;
+}
+
+.postActions button:last-child {
+  background: linear-gradient(90deg, #ef4444 0%, #f59e42 100%);
+  color: #fff;
+}
+
+.postActions button:hover {
+  filter: brightness(1.1);
+  transform: translateY(-3px) scale(1.06);
+}
+
+@media (max-width: 600px) {
+  .postActions {
+    flex-direction: column;
+    gap: 0.8rem;
+  }
+  .postActions button {
+    padding: 0.7rem 1.8rem;
+    font-size: 1rem;
+    margin-right: 0;
+  }
+}
