@@ -5,7 +5,7 @@ import TilesContainer from "./TilesContainer";
 import PostDetails from "./PostDetails";
 import ArticlesPage from "./ArticlesPage";
 import CreateArticlePage from "./CreateArticlePage";
-
+import EditArticlePage from "./EditArticlePage";
 
 function App() {
     return (
@@ -22,6 +22,7 @@ function App() {
            <Route path="/post/:id" element={<PostDetails />} />
            <Route path="/articles" element={<ArticlesPage />} />
            <Route path="/articles/create" element={<CreateArticlePage />} />
+           <Route path="/article/edit/:id" element={<EditArticlePage />} />
           </Routes>
        </main>
     </Router>

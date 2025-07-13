@@ -52,6 +52,15 @@ app.delete("/api/article/delete/:id", async (req, res)=>{
     res.status(200).json("Deleted.");
 })
 
+app.put("/api/article/edit",async (req, res)=>{
+    const article = req.body;
+    await db.query("UPDATE articles SET topic = $1, title = $2, summary = $3, date = $4, readtime = $5, fulltext = $6 WHERE id = $7 ",
+        [article.topic, article.title, article.summary , article.date, article.readtime, article.fulltext, article.id ]
+    );
+    res.json("Edited");
+    
+})
+
 
 
 

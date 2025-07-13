@@ -12,5 +12,5 @@ export default function Button(props) {
       }
     }
 
-    return <button onClick={handleClick}>{props.name}</button>
+    return <button type={props.type} onClick={handleClick}>{props.name}</button>
 }

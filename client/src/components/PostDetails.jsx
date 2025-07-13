@@ -39,7 +39,7 @@ export default function PostDetails(){
             <p>{post.fulltext}</p>
         </div>
         <div className="postActions">
-            <Button name="Edit" />
+            <Button name="Edit" url={`/article/edit/${id}`}/>
             <Button name="Delete" clickAction={OnDelete} />
         </div>
     </div>
