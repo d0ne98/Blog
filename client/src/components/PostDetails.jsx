@@ -33,10 +33,10 @@ export default function PostDetails(){
         <div className="postHero">
             <h4>{post.topic}</h4>
             <h1>{post.title}</h1>
-            <h5>{post.date}<span> . </span>{post.readtime} minutes</h5>
+            <h5>{post.date}<span> . </span>{post.read_time} minutes</h5>
         </div>
         <div className="postBody">
-            <p>{post.fulltext}</p>
+            <p>{post.full_text}</p>
         </div>
         <div className="postActions">
             <Button name="Edit" url={`/article/edit/${id}`}/>

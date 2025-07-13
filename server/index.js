@@ -26,9 +26,9 @@ app.use(express.json());
 // express routes 
 app.post("/api/articles/create", async (req, res)=>{
     
-    const {topic, title, summary, date, readTime, fullText} = req.body;
-    const article = await db.query("INSERT INTO articles (topic, title, summary, date, readtime, fulltext) VALUES ($1, $2, $3, $4, $5, $6) RETURNING *",
-        [topic, title, summary, date, readTime, fullText]);
+    const {topic, title, summary, date, read_time, full_text} = req.body;
+    const article = await db.query("INSERT INTO articles (topic, title, summary, date, read_time, full_text) VALUES ($1, $2, $3, $4, $5, $6) RETURNING *",
+        [topic, title, summary, date, read_time, full_text]);
     
     res.json(article.rows[0]);
 });
@@ -54,8 +54,8 @@ app.delete("/api/article/delete/:id", async (req, res)=>{
 
 app.put("/api/article/edit",async (req, res)=>{
     const article = req.body;
-    await db.query("UPDATE articles SET topic = $1, title = $2, summary = $3, date = $4, readtime = $5, fulltext = $6 WHERE id = $7 ",
-        [article.topic, article.title, article.summary , article.date, article.readtime, article.fulltext, article.id ]
+    await db.query("UPDATE articles SET topic = $1, title = $2, summary = $3, date = $4, read_time = $5, full_text = $6 WHERE id = $7 ",
+        [article.topic, article.title, article.summary , article.date, article.read_time, article.full_text, article.id ]
     );
     res.json("Edited");
     

@@ -25,7 +25,7 @@ export default  function TilesContainer() {
                  title={post.title} 
                  summary={post.summary} 
                  date={post.date} 
-                 readTime={post.readTime}/>
+                 readTime={post.read_time}/>
             })}
         </div>
     )

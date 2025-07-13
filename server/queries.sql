@@ -4,8 +4,8 @@ CREATE TABLE articles (
   title TEXT NOT NULL,
   summary TEXT NOT NULL,
   date DATE NOT NULL,
-  readtime INTEGER,
-  fulltext TEXT NOT NULL
+  read_time INTEGER,
+  full_text TEXT NOT NULL
 );
 
 

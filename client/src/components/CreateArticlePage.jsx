@@ -6,13 +6,13 @@ import Button from "./Button";
 
 export default function CreateArticlePage() {
     const navigate = useNavigate();
-    const [article , setArtcle] = useState({
+    const [article , setArticle] = useState({
         topic: "",
         title: "",
         summary: "",
-        fullText: "",
+        full_text: "",
         date: "",
-        readTime: ""
+        read_time: ""
     });
 
    async function handleSubmit(event) {
@@ -23,7 +23,7 @@ export default function CreateArticlePage() {
     }
 
     function  setArticleValues(event) {
-        setArtcle((pervArticle)=> {
+        setArticle((pervArticle)=> {
             return {
                 ...pervArticle,
                 [event.target.name] : event.target.value
@@ -39,8 +39,8 @@ export default function CreateArticlePage() {
             <Input label="Title" name="title" type="text" value={article.title} handleChange={setArticleValues} required={true} />
             <Input label="Summary" name="summary" type="text" value={article.summary} handleChange={setArticleValues} required={true} />
             <Input label="Date" name="date" type="text" value={article.date} handleChange={setArticleValues} required={true} />
-            <Input label="ReadTime" name="readTime" type="text" value={article.readTime} handleChange={setArticleValues} required={true} />
-            <label> Full Text <textarea name="fullText" value={article.fullText} onChange={setArticleValues} placeholder="Write the article in here ..." required/></label>
+            <Input label="Read Time" name="read_time" type="text" value={article.read_time} handleChange={setArticleValues} required={true} />
+            <label> Full Text <textarea name="full_text" value={article.full_text} onChange={setArticleValues} placeholder="Write the article in here ..." required/></label>
             <Button name="Publish" type="submit"/>
             <Button name="Cancel" url="/articles" />
             </form>

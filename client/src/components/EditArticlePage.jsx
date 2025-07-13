@@ -45,8 +45,8 @@ export default function EditArticlePage(props) {
                     <Input label="Title" name="title" type="text" value={article.title} handleChange={setArticleValues} required={true} />
                     <Input label="Summary" name="summary" type="text" value={article.summary} handleChange={setArticleValues} required={true} />
                     <Input label="Date" name="date" type="text" value={article.date} handleChange={setArticleValues} required={true} />
-                    <Input label="ReadTime" name="readtime" type="text" value={article.readtime} handleChange={setArticleValues} required={true} />
-                    <label> Full Text <textarea name="fulltext" value={article.fulltext} onChange={setArticleValues} placeholder="Write the article in here ..." required/></label>
+                    <Input label="Read Time" name="read_time" type="text" value={article.read_time} handleChange={setArticleValues} required={true} />
+                    <label> Full Text <textarea name="full_text" value={article.full_text} onChange={setArticleValues} placeholder="Write the article in here ..." required/></label>
                     <Button name="Save" type="submit"/>
                     <Button name="Cancel" type="button" clickAction={handleCancel} />
                     </form>

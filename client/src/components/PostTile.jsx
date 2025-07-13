@@ -14,7 +14,7 @@ export default function PostTile(props) {
             <h3>{props.title}</h3>
             <p>{props.summary}</p>
             <p></p>
-            <h5>{props.date}<span> . </span>{props.readTime}</h5>
+            <h5>{props.date}<span> . </span>{props.read_time}</h5>
 
         </div>
     )
