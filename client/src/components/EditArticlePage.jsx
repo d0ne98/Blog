@@ -7,18 +7,35 @@ export default function EditArticlePage(props) {
     const {id} = useParams();
     const [article , setArticle] = useState({})
     const navigate = useNavigate();
+    const [error, setError] = useState(null);
 
     useEffect(()=>{
         async function getArticle(id) {
+            setError(null);
+            try {
             const response = await axios.get(`http://localhost:3001/api/article/${id}`);
             setArticle(response.data);
+            } catch (err) {
+                setError("Could not load the article. Please try again later.");
+                console.error("Error fetching article.", err);
+                
+            }
+
         } getArticle(id)
     },[])
 
     async function handleSubmit(event) {
         event.preventDefault();
-        const response = await axios.put("http://localhost:3001/api/article/edit", article);
-        navigate(`/post/${id}`);
+        setError(null);
+        try {
+            const response = await axios.put("http://localhost:3001/api/article/edit", article);
+            navigate(`/post/${id}`);
+        } catch (err) {
+            setError("Could not save changes. Please try again.");
+            console.error("Error saving article.", err );
+            
+        }
+        
     }
 
     function setArticleValues(event) {
@@ -47,6 +64,7 @@ export default function EditArticlePage(props) {
                     <Input label="Date" name="date" type="text" value={article.date} handleChange={setArticleValues} required={true} />
                     <Input label="Read Time" name="read_time" type="text" value={article.read_time} handleChange={setArticleValues} required={true} />
                     <label> Full Text <textarea name="full_text" value={article.full_text} onChange={setArticleValues} placeholder="Write the article in here ..." required/></label>
+                    {error && <div className="errorMsg">{error}</div>}
                     <Button name="Save" type="submit"/>
                     <Button name="Cancel" type="button" clickAction={handleCancel} />
                     </form>

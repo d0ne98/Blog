@@ -6,11 +6,20 @@ import PostTile from "./PostTile"
 
 export default  function TilesContainer() {
     const [posts, setPosts] = useState([]);
+    const [error, setError]= useState(null);
 
     useEffect(()=>{
         async function getArticles() {
-             const response = await axios.get("http://localhost:3001/api/articles");
-             setPosts(response.data);
+            setError(null);
+             try {
+                const response = await axios.get("http://localhost:3001/api/articles");
+                setPosts(response.data);
+             } catch (err) {
+                setError("Could not load articles. Please refresh the page.");
+                console.error("Error fetching articles.", err);
+             }
+
+             
              
         } getArticles();
     },[])
@@ -18,6 +27,7 @@ export default  function TilesContainer() {
     
     return(
         <div className="tilesContainer" >
+            {error && <div className="errorMsg">{error}</div>}
             {posts.map((post)=>{
                return <PostTile
                  id={post.id}
