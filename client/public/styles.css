@@ -603,3 +603,92 @@ button:hover::after {
     margin-right: 0;
   }
 }
+
+.editArticlePageMain {
+  background: rgba(30, 41, 59, 0.85);
+  max-width: 600px;
+  margin: 3rem auto 2rem auto;
+  padding: 2.5rem 2rem 2rem 2rem;
+  border-radius: 28px;
+  box-shadow: 0 8px 32px rgba(56,189,248,0.13), 0 1.5px 8px rgba(99,102,241,0.10);
+  backdrop-filter: blur(10px);
+  color: #f3f4f6;
+  position: relative;
+}
+.editArticlePageMain h1 {
+  font-size: 2.2rem;
+  font-weight: 800;
+  margin-bottom: 2rem;
+  color: #38bdf8;
+  text-align: center;
+  letter-spacing: 1px;
+  text-shadow: 0 1px 8px rgba(56,189,248,0.13);
+}
+.editArticlePageMain form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+.editArticlePageMain label {
+  display: flex;
+  flex-direction: column;
+  font-size: 1.08rem;
+  font-weight: 500;
+  color: #e0e7ef;
+  margin-bottom: 0.2rem;
+  gap: 0.5rem;
+}
+.editArticlePageMain input[type="text"],
+.editArticlePageMain input[type="date"],
+.editArticlePageMain input[type="number"],
+.editArticlePageMain textarea {
+  background: rgba(255,255,255,0.08);
+  border: 1.5px solid rgba(99,102,241,0.18);
+  border-radius: 10px;
+  padding: 0.85rem 1.1rem;
+  color: #f3f4f6;
+  font-size: 1.08rem;
+  margin-top: 0.2rem;
+  margin-bottom: 0.1rem;
+  outline: none;
+  transition: border 0.18s, box-shadow 0.18s;
+  box-shadow: 0 2px 12px rgba(56,189,248,0.08);
+  resize: vertical;
+}
+.editArticlePageMain input:focus,
+.editArticlePageMain textarea:focus {
+  border-color: #38bdf8;
+  box-shadow: 0 4px 24px rgba(56,189,248,0.13);
+}
+.editArticlePageMain textarea {
+  min-height: 120px;
+  max-height: 320px;
+  font-family: inherit;
+}
+.editArticlePageMain form button:first-of-type {
+  background: linear-gradient(90deg, #22d3ee 0%, #6366f1 100%);
+  color: #fff;
+}
+.editArticlePageMain form button:last-of-type {
+  background: linear-gradient(90deg, #ef4444 0%, #f59e42 100%);
+  color: #fff;
+}
+.editArticlePageMain form button:hover {
+  filter: brightness(1.1);
+  transform: translateY(-3px) scale(1.06);
+}
+.editArticlePageMain form button {
+  min-width: 120px;
+  text-align: center;
+}
+@media (max-width: 600px) {
+  .editArticlePageMain form {
+    flex-direction: column;
+    gap: 0.8rem;
+  }
+  .editArticlePageMain form button {
+    padding: 0.7rem 1.8rem;
+    font-size: 1rem;
+    margin-right: 0;
+  }
+}
