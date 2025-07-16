@@ -3,6 +3,7 @@ import Input from "./Input";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Button from "./Button";
+import TopicSelect from "./TopicSelect";
 
 export default function CreateArticlePage() {
     const navigate = useNavigate();
@@ -43,8 +44,7 @@ export default function CreateArticlePage() {
         <div className="createArticlePageMain">
             <h1>Create New Article</h1>
             <form onSubmit={handleSubmit}>
-            
-            <Input label="Topic" name="topic" type="text" value={article.topic} handleChange={setArticleValues} required={true} />
+            <label>Topic <TopicSelect name="topic" value={article.topic || ""} handleChange={setArticleValues}/></label>
             <Input label="Title" name="title" type="text" value={article.title} handleChange={setArticleValues} required={true} />
             <Input label="Summary" name="summary" type="text" value={article.summary} handleChange={setArticleValues} required={true} />
             <Input label="Date" name="date" type="text" value={article.date} handleChange={setArticleValues} required={true} />

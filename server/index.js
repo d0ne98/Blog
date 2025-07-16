@@ -22,6 +22,14 @@ app.use(cors());
 app.use(express.urlencoded({extended: true}));
 app.use(express.json());
 
+const topics = [
+  "Technology",
+  "Health",
+  "Travel",
+  "Education",
+  "Finance",
+  "Lifestyle"]
+
 
 // express routes 
 app.post("/api/articles/create", async (req, res)=>{
@@ -86,10 +94,12 @@ app.put("/api/article/edit",async (req, res)=>{
         console.error(err);
         res.status(500).json({ message: "Failed to edit article." })
     }
-    
-    
 })
 
+
+app.get("/api/topics", (req, res)=>{
+    res.json(topics);
+})
 
 
 

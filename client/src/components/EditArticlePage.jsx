@@ -3,6 +3,8 @@ import { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import Button from "./Button";
 import Input from "./Input";
+import TopicSelect from "./TopicSelect";
+
 export default function EditArticlePage(props) {
     const {id} = useParams();
     const [article , setArticle] = useState({})
@@ -58,7 +60,7 @@ export default function EditArticlePage(props) {
         <div className="editArticlePageMain">
                     <h1>Edit Article</h1>
                     <form onSubmit={handleSubmit}>
-                    <Input label="Topic" name="topic" type="text" value={article.topic} handleChange={setArticleValues} required={true} />
+                    <label>Topic <TopicSelect name="topic" value={article.topic} handleChange={setArticleValues} /></label>
                     <Input label="Title" name="title" type="text" value={article.title} handleChange={setArticleValues} required={true} />
                     <Input label="Summary" name="summary" type="text" value={article.summary} handleChange={setArticleValues} required={true} />
                     <Input label="Date" name="date" type="text" value={article.date} handleChange={setArticleValues} required={true} />
