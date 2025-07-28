@@ -10,7 +10,7 @@ export default function PostTile(props) {
     
     return(
         <div className="postTile" onClick={handleClick}>
-            <h2>{props.topic}</h2>
+            <h2>{props.category}</h2>
             <h3>{props.title}</h3>
             <p>{props.summary}</p>
             <p></p>

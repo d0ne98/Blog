@@ -48,7 +48,7 @@ export default function PostDetails(){
             <Button name="← Back to Posts" url="/articles"/>
         </div>
         <div className="postHero">
-            <h4>{post.topic}</h4>
+            <h4>{post.category}</h4>
             <h1>{post.title}</h1>
             <h5>{post.date}<span> . </span>{post.read_time} minutes</h5>
         </div>

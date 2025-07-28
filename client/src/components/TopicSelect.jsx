@@ -8,9 +8,9 @@ export default function TopicSelect(props) {
         async function getTopics() {
 
             try {
-                const response = await axios.get("http://localhost:3001/api/topics");
+                const response = await axios.get("http://localhost:3001/api/categories");
                 setTopics(response.data);
-                console.log(topics);
+                console.log(topics)
                 
             } catch (err) {
                 console.error(err); 
@@ -22,7 +22,7 @@ export default function TopicSelect(props) {
         <select className="topicSelect" name={props.name} value={props.value} onChange={props.handleChange} required>
             <option value= "" > --Please choose a topic--</option>
             {topics.map((topic, index)=>{
-                return <option key={index} value={topic}>{topic}</option>
+                return <option key={topic.id} value={topic.id}>{topic.name}</option>
             })}
         </select>
     )  

@@ -22,21 +22,13 @@ app.use(cors());
 app.use(express.urlencoded({extended: true}));
 app.use(express.json());
 
-const topics = [
-  "Technology",
-  "Health",
-  "Travel",
-  "Education",
-  "Finance",
-  "Lifestyle"]
-
 
 // express routes 
 app.post("/api/articles/create", async (req, res)=>{
-    const {topic, title, summary, date, read_time, full_text} = req.body;
+    const {category_id, title, summary, date, read_time, full_text} = req.body;
     try{
-    const article = await db.query("INSERT INTO articles (topic, title, summary, date, read_time, full_text) VALUES ($1, $2, $3, $4, $5, $6) RETURNING *",
-        [topic, title, summary, date, read_time, full_text]);
+    const article = await db.query("INSERT INTO articles (title, summary, date, read_time, full_text, category_id) VALUES ($1, $2, $3, $4, $5, $6) RETURNING *",
+        [title, summary, date, read_time, full_text, category_id]);
     res.status(200).json(article.rows[0]);
     }catch(err){
         console.error(err);
@@ -46,7 +38,8 @@ app.post("/api/articles/create", async (req, res)=>{
 
 app.get("/api/articles", async (req, res)=>{
     try {
-        const response = await db.query("SELECT * FROM articles");
+        const response = await db.query(`SELECT articles.* , categories.name AS category FROM articles
+                                          JOIN categories ON articles.category_id = categories.id`);
         const articles = response.rows;
         res.status(200).json(articles);
     } catch (err) {
@@ -60,7 +53,8 @@ app.get("/api/article/:id", async (req, res)=>{
     const id = parseInt(req.params.id);
     try {
         
-        const response = await db.query("SELECT * FROM articles WHERE id=$1", [id]);
+        const response = await db.query(`SELECT articles.* , categories.name AS category FROM articles
+                                          JOIN categories ON articles.category_id = categories.id`);   
         const post = response.rows[0];
         res.status(200).json(post);
     } catch (err) {
@@ -97,8 +91,14 @@ app.put("/api/article/edit",async (req, res)=>{
 })
 
 
-app.get("/api/topics", (req, res)=>{
-    res.json(topics);
+app.get("/api/categories", async (req, res)=>{
+    try {
+        const response = await db.query("SELECT * FROM categories");
+        res.status(200).json(response.rows);
+    } catch (err) {
+        console.error(err);
+        res.status(404).json({ message: "Failed to fetch categories." });
+    }
 })
 
 

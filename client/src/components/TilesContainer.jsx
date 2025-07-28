@@ -31,7 +31,7 @@ export default  function TilesContainer() {
             {posts.map((post)=>{
                return <PostTile
                  id={post.id}
-                 topic={post.topic}
+                 category={post.category}
                  title={post.title} 
                  summary={post.summary} 
                  date={post.date} 
