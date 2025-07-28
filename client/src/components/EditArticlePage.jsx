@@ -60,7 +60,7 @@ export default function EditArticlePage(props) {
         <div className="editArticlePageMain">
                     <h1>Edit Article</h1>
                     <form onSubmit={handleSubmit}>
-                    <label>Topic <TopicSelect name="topic" value={article.topic} handleChange={setArticleValues} /></label>
+                    <label>Category <TopicSelect name="category_id" value={article.category_id} handleChange={setArticleValues} /></label>
                     <Input label="Title" name="title" type="text" value={article.title} handleChange={setArticleValues} required={true} />
                     <Input label="Summary" name="summary" type="text" value={article.summary} handleChange={setArticleValues} required={true} />
                     <Input label="Date" name="date" type="text" value={article.date} handleChange={setArticleValues} required={true} />

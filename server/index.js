@@ -80,8 +80,8 @@ app.delete("/api/article/delete/:id", async (req, res)=>{
 app.put("/api/article/edit",async (req, res)=>{
     const article = req.body;
     try {
-        await db.query("UPDATE articles SET topic = $1, title = $2, summary = $3, date = $4, read_time = $5, full_text = $6 WHERE id = $7 ",
-        [article.topic, article.title, article.summary , article.date, article.read_time, article.full_text, article.id ]
+        await db.query("UPDATE articles SET  title = $1, summary = $2, date = $3, read_time = $4, full_text = $5, category_id = $6 WHERE id = $7 ",
+        [article.title, article.summary , article.date, article.read_time, article.full_text,article.category_id, article.id ]
        );
        res.status(200).json("Edited");
     } catch (err) {
