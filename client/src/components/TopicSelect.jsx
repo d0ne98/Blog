@@ -8,7 +8,7 @@ export default function TopicSelect(props) {
         async function getTopics() {
 
             try {
-                const response = await axios.get("http://localhost:3001/api/categories");
+                const response = await axios.get("http://localhost:3001/api/category");
                 setTopics(response.data);
                 console.log(topics)
                 

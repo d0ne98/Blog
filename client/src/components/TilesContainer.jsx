@@ -12,7 +12,7 @@ export default  function TilesContainer() {
         async function getArticles() {
             setError(null);
              try {
-                const response = await axios.get("http://localhost:3001/api/articles");
+                const response = await axios.get("http://localhost:3001/api/article");
                 setPosts(response.data);
              } catch (err) {
                 setError("Could not load articles. Please refresh the page.");
