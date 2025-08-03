@@ -21,7 +21,7 @@ export default function CreateArticlePage() {
         event.preventDefault();
         setError(null);
         try {
-            const response = await axios.post("http://localhost:3001/api/article/create", article);
+            const response = await axios.post("http://localhost:3001/api/article/create", article, {withCredentials: true });
             const postId = response.data.id;
             navigate(`/post/${postId}`)
         } catch (err) {

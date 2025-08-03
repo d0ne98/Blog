@@ -29,7 +29,7 @@ export default function PostDetails(){
     async function OnDelete() {
             setError(null);
             try {
-                const response = await axios.delete(`http://localhost:3001/api/article/delete/${id}`);
+                const response = await axios.delete(`http://localhost:3001/api/article/delete/${id}`, {withCredentials:true});
                 navigate("/articles")
             } catch (err) {
                  setError("Could not load the post. Please try again later.");

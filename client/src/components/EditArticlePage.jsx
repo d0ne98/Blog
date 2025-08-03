@@ -30,7 +30,7 @@ export default function EditArticlePage(props) {
         event.preventDefault();
         setError(null);
         try {
-            const response = await axios.put("http://localhost:3001/api/article/edit", article);
+            const response = await axios.put("http://localhost:3001/api/article/edit", article,{withCredentials:true });
             navigate(`/post/${id}`);
         } catch (err) {
             setError("Could not save changes. Please try again.");
